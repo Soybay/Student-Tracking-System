@@ -52,6 +52,7 @@
             this.StudentsButton.TabIndex = 1;
             this.StudentsButton.Text = "Students List";
             this.StudentsButton.UseVisualStyleBackColor = true;
+            this.StudentsButton.Click += new System.EventHandler(this.StudentsButton_Click);
             // 
             // ExamsButton
             // 
