@@ -38,7 +38,7 @@ namespace Student_Tracking_System
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT role FROM Users WHERE username=@username AND password=@password", con);
+                SqlCommand cmd = new SqlCommand("SELECT user_id, role FROM Users WHERE username=@username AND password=@password", con);
                 cmd.Parameters.AddWithValue("@username", username);
                 cmd.Parameters.AddWithValue("@password", hashedPassword);
 
@@ -46,6 +46,7 @@ namespace Student_Tracking_System
 
                 if (reader.Read())
                 {
+                    int user_id = Convert.ToInt32(reader["user_id"]);
                     string role = reader["role"].ToString();
 
                     if (role == "admin")
@@ -55,7 +56,7 @@ namespace Student_Tracking_System
                     }
                     else if (role == "student")
                     {
-                        StudentHome studentForm = new StudentHome();
+                        StudentHome studentForm = new StudentHome(user_id);
                         studentForm.Show();
                     }
 
@@ -67,6 +68,7 @@ namespace Student_Tracking_System
                 }
             }
         }
+
 
         public static string ComputeSha256Hash(string rawData)
         {

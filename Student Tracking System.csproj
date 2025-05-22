@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddAdminExam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAdminExam.Designer.cs">
+      <DependentUpon>AddAdminExam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddExam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddExam.Designer.cs">
+      <DependentUpon>AddExam.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +69,18 @@
     </Compile>
     <Compile Include="AdminHome.Designer.cs">
       <DependentUpon>AdminHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExamHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExamHistory.Designer.cs">
+      <DependentUpon>ExamHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExamsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExamsList.Designer.cs">
+      <DependentUpon>ExamsList.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -100,11 +124,23 @@
     <Compile Include="UpdateStudent.Designer.cs">
       <DependentUpon>UpdateStudent.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddAdminExam.resx">
+      <DependentUpon>AddAdminExam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddExam.resx">
+      <DependentUpon>AddExam.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddStudent.resx">
       <DependentUpon>AddStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminHome.resx">
       <DependentUpon>AdminHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamHistory.resx">
+      <DependentUpon>ExamHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamsList.resx">
+      <DependentUpon>ExamsList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

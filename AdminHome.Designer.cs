@@ -62,6 +62,7 @@
             this.ExamsButton.TabIndex = 2;
             this.ExamsButton.Text = "Exams List";
             this.ExamsButton.UseVisualStyleBackColor = true;
+            this.ExamsButton.Click += new System.EventHandler(this.ExamsButton_Click);
             // 
             // LogOutButton
             // 

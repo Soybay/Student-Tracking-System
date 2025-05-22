@@ -52,6 +52,7 @@
             this.ExamHistoryButton.TabIndex = 4;
             this.ExamHistoryButton.Text = "Exam History";
             this.ExamHistoryButton.UseVisualStyleBackColor = true;
+            this.ExamHistoryButton.Click += new System.EventHandler(this.ExamHistoryButton_Click);
             // 
             // AddExamButton
             // 
@@ -61,6 +62,7 @@
             this.AddExamButton.TabIndex = 3;
             this.AddExamButton.Text = "Add Exam";
             this.AddExamButton.UseVisualStyleBackColor = true;
+            this.AddExamButton.Click += new System.EventHandler(this.AddExamButton_Click);
             // 
             // LogOutButton
             // 

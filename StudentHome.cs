@@ -12,9 +12,12 @@ namespace Student_Tracking_System
 {
     public partial class StudentHome : Form
     {
-        public StudentHome()
+        int user_id;
+        
+        public StudentHome(int user_id)
         {
             InitializeComponent();
+            this.user_id = user_id;
         }
 
         private void LogOutButton_Click(object sender, EventArgs e)
@@ -22,6 +25,18 @@ namespace Student_Tracking_System
             Login login = new Login();
             login.Show();
             this.Close();
+        }
+
+        private void AddExamButton_Click(object sender, EventArgs e)
+        {
+            AddExam addExam = new AddExam(user_id);
+            addExam.ShowDialog();
+        }
+
+        private void ExamHistoryButton_Click(object sender, EventArgs e)
+        {
+            ExamHistory historypage = new ExamHistory(user_id);
+            historypage.ShowDialog();
         }
     }
 }

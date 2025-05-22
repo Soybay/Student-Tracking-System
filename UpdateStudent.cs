@@ -8,12 +8,12 @@ namespace Student_Tracking_System
 {
     public partial class UpdateStudent : Form
     {
-        int userId;
+        int user_id;
 
-        public UpdateStudent(int userId)
+        public UpdateStudent(int user_id)
         {
             InitializeComponent();
-            this.userId = userId;
+            this.user_id = user_id;
         }
 
         private void UpdateStudentButton_Click(object sender, EventArgs e)
@@ -32,7 +32,7 @@ namespace Student_Tracking_System
                 {
                     SqlCommand cmd = new SqlCommand("UPDATE Users SET username=@username WHERE user_id=@id", con);
                     cmd.Parameters.AddWithValue("@username", username);
-                    cmd.Parameters.AddWithValue("@id", userId);
+                    cmd.Parameters.AddWithValue("@id", user_id);
                     cmd.ExecuteNonQuery();
                 }
 
@@ -41,7 +41,7 @@ namespace Student_Tracking_System
                     string hashedPassword = ComputeSha256Hash(password);
                     SqlCommand cmd = new SqlCommand("UPDATE Users SET password=@password WHERE user_id=@id", con);
                     cmd.Parameters.AddWithValue("@password", hashedPassword);
-                    cmd.Parameters.AddWithValue("@id", userId);
+                    cmd.Parameters.AddWithValue("@id", user_id);
                     cmd.ExecuteNonQuery();
                 }
 
@@ -49,7 +49,7 @@ namespace Student_Tracking_System
                 {
                     SqlCommand cmd = new SqlCommand("UPDATE Students SET first_name=@first WHERE user_id=@id", con);
                     cmd.Parameters.AddWithValue("@first", firstName);
-                    cmd.Parameters.AddWithValue("@id", userId);
+                    cmd.Parameters.AddWithValue("@id", user_id);
                     cmd.ExecuteNonQuery();
                 }
 
@@ -57,7 +57,7 @@ namespace Student_Tracking_System
                 {
                     SqlCommand cmd = new SqlCommand("UPDATE Students SET last_name=@last WHERE user_id=@id", con);
                     cmd.Parameters.AddWithValue("@last", lastName);
-                    cmd.Parameters.AddWithValue("@id", userId);
+                    cmd.Parameters.AddWithValue("@id", user_id);
                     cmd.ExecuteNonQuery();
                 }
 

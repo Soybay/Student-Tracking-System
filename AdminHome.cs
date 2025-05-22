@@ -29,5 +29,11 @@ namespace Student_Tracking_System
             StudentList studentList = new StudentList();
             studentList.ShowDialog();
         }
+
+        private void ExamsButton_Click(object sender, EventArgs e)
+        {
+            ExamsList examsList = new ExamsList();
+            examsList.ShowDialog();
+        }
     }
 }
