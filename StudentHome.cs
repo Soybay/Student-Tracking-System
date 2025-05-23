@@ -38,5 +38,11 @@ namespace Student_Tracking_System
             ExamHistory historypage = new ExamHistory(user_id);
             historypage.ShowDialog();
         }
+
+        private void PerformanceGraphicButton_Click(object sender, EventArgs e)
+        {
+            PerformanceGraphic performanceGraphic = new PerformanceGraphic(user_id);
+            performanceGraphic.ShowDialog();
+        }
     }
 }

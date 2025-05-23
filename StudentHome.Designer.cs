@@ -32,6 +32,9 @@
             this.ExamHistoryButton = new System.Windows.Forms.Button();
             this.AddExamButton = new System.Windows.Forms.Button();
             this.LogOutButton = new System.Windows.Forms.Button();
+            this.studentTrackerDataSet1 = new Student_Tracking_System.StudentTrackerDataSet1();
+            this.PerformanceGraphicButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.studentTrackerDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // WelcomeLabel
@@ -46,7 +49,7 @@
             // 
             // ExamHistoryButton
             // 
-            this.ExamHistoryButton.Location = new System.Drawing.Point(471, 150);
+            this.ExamHistoryButton.Location = new System.Drawing.Point(315, 150);
             this.ExamHistoryButton.Name = "ExamHistoryButton";
             this.ExamHistoryButton.Size = new System.Drawing.Size(132, 64);
             this.ExamHistoryButton.TabIndex = 4;
@@ -74,17 +77,34 @@
             this.LogOutButton.UseVisualStyleBackColor = true;
             this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
             // 
+            // studentTrackerDataSet1
+            // 
+            this.studentTrackerDataSet1.DataSetName = "StudentTrackerDataSet1";
+            this.studentTrackerDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // PerformanceGraphicButton
+            // 
+            this.PerformanceGraphicButton.Location = new System.Drawing.Point(466, 150);
+            this.PerformanceGraphicButton.Name = "PerformanceGraphicButton";
+            this.PerformanceGraphicButton.Size = new System.Drawing.Size(132, 64);
+            this.PerformanceGraphicButton.TabIndex = 6;
+            this.PerformanceGraphicButton.Text = "Performance Graphic";
+            this.PerformanceGraphicButton.UseVisualStyleBackColor = true;
+            this.PerformanceGraphicButton.Click += new System.EventHandler(this.PerformanceGraphicButton_Click);
+            // 
             // StudentHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.PerformanceGraphicButton);
             this.Controls.Add(this.LogOutButton);
             this.Controls.Add(this.ExamHistoryButton);
             this.Controls.Add(this.AddExamButton);
             this.Controls.Add(this.WelcomeLabel);
             this.Name = "StudentHome";
             this.Text = "StudentHome";
+            ((System.ComponentModel.ISupportInitialize)(this.studentTrackerDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -96,5 +116,7 @@
         private System.Windows.Forms.Button ExamHistoryButton;
         private System.Windows.Forms.Button AddExamButton;
         private System.Windows.Forms.Button LogOutButton;
+        private StudentTrackerDataSet1 studentTrackerDataSet1;
+        private System.Windows.Forms.Button PerformanceGraphicButton;
     }
 }

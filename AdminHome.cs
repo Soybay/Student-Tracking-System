@@ -35,5 +35,23 @@ namespace Student_Tracking_System
             ExamsList examsList = new ExamsList();
             examsList.ShowDialog();
         }
+
+        private void AdminHome_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'studentTrackerDataSet1.Users' table. You can move, or remove it, as needed.
+            this.usersTableAdapter.Fill(this.studentTrackerDataSet1.Users);
+
+        }
+
+        private void PerformanceGraphicButton_Click(object sender, EventArgs e)
+        {
+            if (UsernameCombo.SelectedValue != null)
+            {
+                int userId = Convert.ToInt32(UsernameCombo.SelectedValue);
+                PerformanceGraphic chartForm = new PerformanceGraphic(userId);
+                chartForm.ShowDialog();
+            }
+        }
+
     }
 }
