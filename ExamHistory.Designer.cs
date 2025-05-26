@@ -30,10 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.ResultsGrid = new System.Windows.Forms.DataGridView();
-            this.resultsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.studentTrackerDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.studentTrackerDataSet1 = new Student_Tracking_System.StudentTrackerDataSet1();
-            this.resultsTableAdapter = new Student_Tracking_System.StudentTrackerDataSet1TableAdapters.ResultsTableAdapter();
             this.examidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.exam_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mathscoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +38,11 @@
             this.inkilapscoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.religionscoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.englishscoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resultsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.studentTrackerDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.studentTrackerDataSet1 = new Student_Tracking_System.StudentTrackerDataSet1();
+            this.resultsTableAdapter = new Student_Tracking_System.StudentTrackerDataSet1TableAdapters.ResultsTableAdapter();
+            this.PrintButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ResultsGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentTrackerDataSet1BindingSource)).BeginInit();
@@ -68,25 +69,6 @@
             this.ResultsGrid.RowTemplate.Height = 24;
             this.ResultsGrid.Size = new System.Drawing.Size(799, 319);
             this.ResultsGrid.TabIndex = 0;
-            // 
-            // resultsBindingSource
-            // 
-            this.resultsBindingSource.DataMember = "Results";
-            this.resultsBindingSource.DataSource = this.studentTrackerDataSet1BindingSource;
-            // 
-            // studentTrackerDataSet1BindingSource
-            // 
-            this.studentTrackerDataSet1BindingSource.DataSource = this.studentTrackerDataSet1;
-            this.studentTrackerDataSet1BindingSource.Position = 0;
-            // 
-            // studentTrackerDataSet1
-            // 
-            this.studentTrackerDataSet1.DataSetName = "StudentTrackerDataSet1";
-            this.studentTrackerDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // resultsTableAdapter
-            // 
-            this.resultsTableAdapter.ClearBeforeFill = true;
             // 
             // examidDataGridViewTextBoxColumn
             // 
@@ -152,16 +134,45 @@
             this.englishscoreDataGridViewTextBoxColumn.Name = "englishscoreDataGridViewTextBoxColumn";
             this.englishscoreDataGridViewTextBoxColumn.Width = 125;
             // 
+            // resultsBindingSource
+            // 
+            this.resultsBindingSource.DataMember = "Results";
+            this.resultsBindingSource.DataSource = this.studentTrackerDataSet1BindingSource;
+            // 
+            // studentTrackerDataSet1BindingSource
+            // 
+            this.studentTrackerDataSet1BindingSource.DataSource = this.studentTrackerDataSet1;
+            this.studentTrackerDataSet1BindingSource.Position = 0;
+            // 
+            // studentTrackerDataSet1
+            // 
+            this.studentTrackerDataSet1.DataSetName = "StudentTrackerDataSet1";
+            this.studentTrackerDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // resultsTableAdapter
+            // 
+            this.resultsTableAdapter.ClearBeforeFill = true;
+            // 
+            // PrintButton
+            // 
+            this.PrintButton.Location = new System.Drawing.Point(661, 68);
+            this.PrintButton.Name = "PrintButton";
+            this.PrintButton.Size = new System.Drawing.Size(113, 42);
+            this.PrintButton.TabIndex = 1;
+            this.PrintButton.Text = "Print";
+            this.PrintButton.UseVisualStyleBackColor = true;
+            this.PrintButton.Click += new System.EventHandler(this.PrintButton_Click);
+            // 
             // ExamHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.PrintButton);
             this.Controls.Add(this.ResultsGrid);
             this.Name = "ExamHistory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ExamHistory";
-            
             ((System.ComponentModel.ISupportInitialize)(this.ResultsGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentTrackerDataSet1BindingSource)).EndInit();
@@ -185,5 +196,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn inkilapscoreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn religionscoreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn englishscoreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button PrintButton;
     }
 }
