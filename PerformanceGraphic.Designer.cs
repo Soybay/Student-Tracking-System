@@ -82,6 +82,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PerformanceChart);
             this.Name = "PerformanceGraphic";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PerformanceGraphic";
             ((System.ComponentModel.ISupportInitialize)(this.PerformanceChart)).EndInit();
             this.ResumeLayout(false);

@@ -78,7 +78,6 @@
             this.MathQLabel.Size = new System.Drawing.Size(40, 25);
             this.MathQLabel.TabIndex = 2;
             this.MathQLabel.Text = "/20";
-            this.MathQLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // ScienceQLabel
             // 
@@ -275,8 +274,8 @@
             this.Controls.Add(this.MathBox);
             this.Controls.Add(this.MathLabel);
             this.Name = "AddExam";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AddExam";
-            this.Load += new System.EventHandler(this.AddExam_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

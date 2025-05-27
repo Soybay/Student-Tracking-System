@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Student_Tracking_System
@@ -10,6 +12,37 @@ namespace Student_Tracking_System
         public StudentList()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
+            ApplyTheme();
+        }
+
+        void ApplyTheme()
+        {
+            Color primary = Properties.Settings.Default.PrimaryColor;
+            Color accent = Properties.Settings.Default.AccentColor;
+            Color textboxBg = Properties.Settings.Default.TextboxBackColor;
+            BackColor = primary;
+            foreach (Button btn in Controls.OfType<Button>())
+            {
+                btn.BackColor = primary;
+                btn.ForeColor = Color.White;
+                btn.FlatStyle = FlatStyle.Flat;
+                btn.FlatAppearance.BorderSize = 2;
+                btn.FlatAppearance.BorderColor = textboxBg;
+                btn.MouseEnter += (s, e) => btn.BackColor = accent;
+                btn.MouseLeave += (s, e) => btn.BackColor = primary;
+            }
+            foreach (TextBox tb in Controls.OfType<TextBox>())
+            {
+                tb.BackColor = textboxBg;
+                tb.ForeColor = Color.Black;
+            }
+            foreach (ComboBox cb in Controls.OfType<ComboBox>())
+            {
+                cb.BackColor = textboxBg;
+                cb.ForeColor = Color.Black;
+                cb.FlatStyle = FlatStyle.Flat;
+            }
         }
 
         private void StudentList_Load(object sender, EventArgs e)
@@ -23,8 +56,8 @@ namespace Student_Tracking_System
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 SqlDataAdapter da = new SqlDataAdapter(
-                    "SELECT u.user_id AS user_id, u.username AS username, s.first_name AS first_name, s.last_name AS last_name " +
-                    "FROM Users u JOIN Students s ON u.user_id = s.user_id", con);
+                    "SELECT u.user_id AS user_id, u.username AS username, s.first_name AS first_name, s.last_name AS last_name FROM Users u JOIN Students s ON u.user_id = s.user_id",
+                    con);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 StudentListGrid.DataSource = dt;

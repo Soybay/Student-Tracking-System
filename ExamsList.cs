@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -13,6 +15,37 @@ namespace Student_Tracking_System
         public ExamsList()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
+            ApplyTheme();
+        }
+
+        void ApplyTheme()
+        {
+            Color primary = Properties.Settings.Default.PrimaryColor;
+            Color accent = Properties.Settings.Default.AccentColor;
+            Color textboxBg = Properties.Settings.Default.TextboxBackColor;
+            BackColor = primary;
+            foreach (Button btn in Controls.OfType<Button>())
+            {
+                btn.BackColor = primary;
+                btn.ForeColor = Color.White;
+                btn.FlatStyle = FlatStyle.Flat;
+                btn.FlatAppearance.BorderSize = 2;
+                btn.FlatAppearance.BorderColor = textboxBg;
+                btn.MouseEnter += (s, e) => btn.BackColor = accent;
+                btn.MouseLeave += (s, e) => btn.BackColor = primary;
+            }
+            foreach (TextBox tb in Controls.OfType<TextBox>())
+            {
+                tb.BackColor = textboxBg;
+                tb.ForeColor = Color.Black;
+            }
+            foreach (ComboBox cb in Controls.OfType<ComboBox>())
+            {
+                cb.BackColor = textboxBg;
+                cb.ForeColor = Color.Black;
+                cb.FlatStyle = FlatStyle.Flat;
+            }
         }
 
         private void ExamsList_Load(object sender, EventArgs e)

@@ -10,5 +10,14 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=LAPTOP-RU2S58BF;Initial Catalog=StudentTracker;Integrated Security=True;Encrypt=False</Value>
     </Setting>
+    <Setting Name="PrimaryColor" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">46, 134, 193</Value>
+    </Setting>
+    <Setting Name="AccentColor" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">243, 156, 18</Value>
+    </Setting>
+    <Setting Name="TextboxBackColor" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">LightBlue</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

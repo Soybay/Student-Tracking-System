@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Student_Tracking_System
@@ -10,7 +12,38 @@ namespace Student_Tracking_System
         public AddAdminExam()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
             LoadUsernames();
+            ApplyTheme();
+        }
+
+        void ApplyTheme()
+        {
+            Color primary = Properties.Settings.Default.PrimaryColor;
+            Color accent = Properties.Settings.Default.AccentColor;
+            Color textboxBg = Properties.Settings.Default.TextboxBackColor;
+            BackColor = primary;
+            foreach (Button btn in Controls.OfType<Button>())
+            {
+                btn.BackColor = primary;
+                btn.ForeColor = Color.White;
+                btn.FlatStyle = FlatStyle.Flat;
+                btn.FlatAppearance.BorderSize = 2;
+                btn.FlatAppearance.BorderColor = textboxBg;
+                btn.MouseEnter += (s, e) => btn.BackColor = accent;
+                btn.MouseLeave += (s, e) => btn.BackColor = primary;
+            }
+            foreach (TextBox tb in Controls.OfType<TextBox>())
+            {
+                tb.BackColor = textboxBg;
+                tb.ForeColor = Color.Black;
+            }
+            foreach (ComboBox cb in Controls.OfType<ComboBox>())
+            {
+                cb.BackColor = textboxBg;
+                cb.ForeColor = Color.Black;
+                cb.FlatStyle = FlatStyle.Flat;
+            }
         }
 
         void LoadUsernames()
@@ -37,13 +70,11 @@ namespace Student_Tracking_System
             int history = int.Parse(HistoryBox.Text);
             int religion = int.Parse(ReligionBox.Text);
             int english = int.Parse(EnglishBox.Text);
-
             string cs = "Data Source=LAPTOP-RU2S58BF;Initial Catalog=StudentTracker;Integrated Security=True;";
             using (var con = new SqlConnection(cs))
             {
                 con.Open();
-                using (var cmdExam = new SqlCommand(
-                    "INSERT INTO Exams(exam_date) OUTPUT INSERTED.exam_id VALUES(@date)", con))
+                using (var cmdExam = new SqlCommand("INSERT INTO Exams(exam_date) OUTPUT INSERTED.exam_id VALUES(@date)", con))
                 {
                     cmdExam.Parameters.AddWithValue("@date", examDate);
                     int examId = (int)cmdExam.ExecuteScalar();

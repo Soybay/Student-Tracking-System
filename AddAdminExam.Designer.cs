@@ -318,6 +318,7 @@
             this.Controls.Add(this.MathLabel);
             this.Controls.Add(this.UsernameCombo);
             this.Name = "AddAdminExam";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AddAdminExam";
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentTrackerDataSet1)).EndInit();

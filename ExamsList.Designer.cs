@@ -33,12 +33,12 @@
             this.AddExamButton = new System.Windows.Forms.Button();
             this.PrintButton = new System.Windows.Forms.Button();
             this.UsernameCombo = new System.Windows.Forms.ComboBox();
-            this.studentTrackerDataSet1 = new Student_Tracking_System.StudentTrackerDataSet1();
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.studentTrackerDataSet1 = new Student_Tracking_System.StudentTrackerDataSet1();
             this.usersTableAdapter = new Student_Tracking_System.StudentTrackerDataSet1TableAdapters.UsersTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.ExamsListGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentTrackerDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentTrackerDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // ExamsListGrid
@@ -82,15 +82,15 @@
             this.UsernameCombo.TabIndex = 3;
             this.UsernameCombo.ValueMember = "user_id";
             // 
-            // studentTrackerDataSet1
-            // 
-            this.studentTrackerDataSet1.DataSetName = "StudentTrackerDataSet1";
-            this.studentTrackerDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // usersBindingSource
             // 
             this.usersBindingSource.DataMember = "Users";
             this.usersBindingSource.DataSource = this.studentTrackerDataSet1;
+            // 
+            // studentTrackerDataSet1
+            // 
+            this.studentTrackerDataSet1.DataSetName = "StudentTrackerDataSet1";
+            this.studentTrackerDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // usersTableAdapter
             // 
@@ -106,11 +106,12 @@
             this.Controls.Add(this.AddExamButton);
             this.Controls.Add(this.ExamsListGrid);
             this.Name = "ExamsList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ExamsList";
             this.Load += new System.EventHandler(this.ExamsList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ExamsListGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentTrackerDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentTrackerDataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }

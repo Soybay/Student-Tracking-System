@@ -103,6 +103,7 @@
             this.Controls.Add(this.AddExamButton);
             this.Controls.Add(this.WelcomeLabel);
             this.Name = "StudentHome";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "StudentHome";
             ((System.ComponentModel.ISupportInitialize)(this.studentTrackerDataSet1)).EndInit();
             this.ResumeLayout(false);

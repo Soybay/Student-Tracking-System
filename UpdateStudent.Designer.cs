@@ -136,6 +136,7 @@
             this.Controls.Add(this.PasswordLabel);
             this.Controls.Add(this.UsernameLabel);
             this.Name = "UpdateStudent";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "UpdateStudent";
             this.ResumeLayout(false);
             this.PerformLayout();

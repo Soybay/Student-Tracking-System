@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Student_Tracking_System
@@ -17,11 +13,41 @@ namespace Student_Tracking_System
         public Register()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
+            ApplyTheme();
+        }
+
+        void ApplyTheme()
+        {
+            Color primary = Properties.Settings.Default.PrimaryColor;
+            Color accent = Properties.Settings.Default.AccentColor;
+            Color textboxBg = Properties.Settings.Default.TextboxBackColor;
+            this.BackColor = primary;
+            foreach (Button btn in this.Controls.OfType<Button>())
+            {
+                btn.BackColor = primary;
+                btn.ForeColor = Color.White;
+                btn.FlatStyle = FlatStyle.Flat;
+                btn.FlatAppearance.BorderSize = 2;
+                btn.FlatAppearance.BorderColor = textboxBg;
+                btn.MouseEnter += (s, e) => btn.BackColor = accent;
+                btn.MouseLeave += (s, e) => btn.BackColor = primary;
+            }
+            foreach (TextBox tb in this.Controls.OfType<TextBox>())
+            {
+                tb.BackColor = textboxBg;
+                tb.ForeColor = Color.Black;
+            }
+            foreach (ComboBox cb in this.Controls.OfType<ComboBox>())
+            {
+                cb.BackColor = textboxBg;
+                cb.ForeColor = Color.Black;
+                cb.FlatStyle = FlatStyle.Flat;
+            }
         }
 
         private void RoleCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void RegisterButton_Click(object sender, EventArgs e)
@@ -31,9 +57,7 @@ namespace Student_Tracking_System
             string role = RoleCombo.SelectedItem.ToString().ToLower();
             string firstName = FirstNameBox.Text;
             string lastName = LastNameBox.Text;
-
             string hashedPassword = ComputeSha256Hash(password);
-
             string connectionString = "Data Source=LAPTOP-RU2S58BF;Initial Catalog=StudentTracker;Integrated Security=True;";
 
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -43,11 +67,9 @@ namespace Student_Tracking_System
                 cmdUser.Parameters.AddWithValue("@username", username);
                 cmdUser.Parameters.AddWithValue("@password", hashedPassword);
                 cmdUser.Parameters.AddWithValue("@role", role);
-
                 try
                 {
                     int user_id = (int)cmdUser.ExecuteScalar();
-
                     if (role == "student")
                     {
                         SqlCommand cmdStudent = new SqlCommand("INSERT INTO Students(user_id, first_name, last_name) VALUES(@user_id, @first_name, @last_name)", con);
@@ -56,10 +78,8 @@ namespace Student_Tracking_System
                         cmdStudent.Parameters.AddWithValue("@last_name", lastName);
                         cmdStudent.ExecuteNonQuery();
                     }
-
                     MessageBox.Show("User registered successfully.");
                     this.Close();
-
                     Application.OpenForms["Login"].Show();
                 }
                 catch (SqlException ex)
@@ -78,11 +98,10 @@ namespace Student_Tracking_System
             {
                 byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
                 StringBuilder builder = new StringBuilder();
-                for (int i = 0; i < bytes.Length; i++)
-                    builder.Append(bytes[i].ToString("x2"));
+                foreach (byte b in bytes)
+                    builder.Append(b.ToString("x2"));
                 return builder.ToString();
             }
-
         }
 
         private void RegToLogButton_Click(object sender, EventArgs e)
